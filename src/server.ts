@@ -2,14 +2,16 @@ import "reflect-metadata";
 import { createConnection } from "typeorm";
 import express from "express";
 import morgan from "morgan";
-import router from "./routes/auth";
-
+import authRoutes from "./routes/auth";
+import trim from "./middleware/trim";
 const app = express();
 
 app.use(express.json());
 app.use(morgan('dev'));
-app.use('/api/auth', router)
+app.use(trim)
+
 app.get('/', (_, res) => res.send('Hello'));
+app.use('/api/auth', authRoutes)
 
 app.listen(5001, async () => {
     console.log('Server running at http://localhost:5000');
