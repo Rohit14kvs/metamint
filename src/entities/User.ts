@@ -31,7 +31,7 @@ export class User extends BaseEntity {
     password: string;
 
     @CreateDateColumn()
-    createAt: Date
+    createdAt: Date
 
     @UpdateDateColumn()
     updatedAt: Date
