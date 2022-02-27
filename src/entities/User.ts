@@ -1,4 +1,4 @@
-import { Entity, PrimaryGeneratedColumn, Column, BaseEntity, Index, CreateDateColumn, UpdateDateColumn, IsNull, BeforeInsert } from "typeorm";
+import { Entity, PrimaryGeneratedColumn, Column, BaseEntity, Index, CreateDateColumn, UpdateDateColumn, BeforeInsert } from "typeorm";
 import { IsEmail, Length } from 'class-validator';
 import bcrypt from 'bcrypt';
 import { instanceToPlain, Exclude } from 'class-transformer'
@@ -16,18 +16,19 @@ export class User extends BaseEntity {
     id: number;
 
     @Index()
-    @IsEmail()
+    @IsEmail(undefined, { message: 'Must be a valid email' })
+    @Length(1, 255, { message: 'Email is empty' })
     @Column({ unique: true })
     email: string;
 
     @Index()
-    @Length(3, 255, { message: 'username must be atleast 3 characters long' })
+    @Length(3, 255, { message: 'Must be atleast 3 characters long' })
     @Column({ unique: true })
     username: string;
 
     @Exclude()
     @Column()
-    @Length(4, 255, { message: 'password must be atleast 4 characters long' })
+    @Length(4, 255, { message: 'Must be atleast 4 characters long' })
     password: string;
 
     @CreateDateColumn()

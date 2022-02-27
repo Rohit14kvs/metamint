@@ -7,6 +7,13 @@ import cookie from 'cookie';
 import dotenv from 'dotenv';
 import auth from "../middleware/auth";
 
+// eslint-disable-next-line @typescript-eslint/ban-types
+const mapErrors = (errors: Object[]) => {
+    return errors.reduce((prev: any, err: any) => {
+        prev[err.property] = Object.entries(err.constraints)[0][1]
+    }, {})
+}
+
 dotenv.config();
 
 //User Registration
@@ -32,7 +39,10 @@ const register = async (req: Request, res: Response) => {
         // Check for valid user
         errors = await validate(user);
 
-        if (errors.length > 0) return res.status(400).json({ errors });
+        if (errors.length > 0) {
+
+            return res.status(400).json(mapErrors(errors));
+        }
 
         await user.save();
 
