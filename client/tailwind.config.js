@@ -4,12 +4,19 @@ module.exports = {
     "./components/**/*.{js,ts,jsx,tsx}",
   ],
   theme: {
+    fontFamily: {
+      body: ['IBM Plex Sans']
+    },
     extend: {},
   },
   plugins: [require("daisyui")],
   daisyui: {
+    themes: {
+      myTheme: {
+        primary: '#1C4ED8'
+      }
+    },
     styled: true,
-    themes: true,
     base: true,
     utils: true,
     logs: true,

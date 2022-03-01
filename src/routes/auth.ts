@@ -23,6 +23,7 @@ const register = async (req: Request, res: Response) => {
 
     try {
         // Validate user data
+        // eslint-disable-next-line @typescript-eslint/no-explicit-any
         let errors: any = {}
         const emailUder = await User.findOne({ email });
         const usernameUser = await User.findOne({ username });
