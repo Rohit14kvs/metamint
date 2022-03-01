@@ -5,7 +5,7 @@
    "username": "rohit",
    "password": "root",
    "database": "metamint",
-   "synchronize": true,
+   "synchronize": false,
    "logging": true,
    "entities": [
       "src/entities/**/*.ts"

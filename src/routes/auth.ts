@@ -9,6 +9,7 @@ import auth from "../middleware/auth";
 
 // eslint-disable-next-line @typescript-eslint/ban-types
 const mapErrors = (errors: Object[]) => {
+    // eslint-disable-next-line @typescript-eslint/no-explicit-any
     return errors.reduce((prev: any, err: any) => {
         prev[err.property] = Object.entries(err.constraints)[0][1]
     }, {})

@@ -10,6 +10,7 @@ const createSub = async (req: Request, res: Response) => {
     const user: User = res.locals.user;
 
     try {
+        // eslint-disable-next-line @typescript-eslint/no-explicit-any
         const errors: any = {};
         if (isEmpty(name)) errors.name = 'Name must not be empty';
         if (isEmpty(title)) errors.title = 'Title must not be empty';
