@@ -7,7 +7,6 @@ interface InputGroupProps {
     typeName: string
     floatingType: string
     inputLabel: string
-
     setValue: (str: string) => void
 }
 

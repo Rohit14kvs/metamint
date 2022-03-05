@@ -4,6 +4,7 @@ import Axios from 'axios'
 
 Axios.defaults.baseURL = 'http://localhost:5001/api'
 Axios.defaults.withCredentials = true
+
 function MyApp({ Component, pageProps }: AppProps) {
   return <Component {...pageProps} />
 }
