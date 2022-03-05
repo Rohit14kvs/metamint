@@ -7,6 +7,7 @@ import postRoutes from "./routes/posts";
 import subRoutes from './routes/subs';
 import trim from "./middleware/trim";
 import cookieParser from "cookie-parser";
+import cors from 'cors';
 
 const app = express();
 const PORT = process.env.PORT;
@@ -15,6 +16,7 @@ app.use(express.json());
 app.use(morgan('dev'));
 app.use(trim);
 app.use(cookieParser());
+app.use(cors())
 
 app.get('/', (_, res) => res.send('Hello'));
 app.use('/api/auth', authRoutes);
