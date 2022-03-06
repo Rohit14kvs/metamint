@@ -4,6 +4,7 @@ import { Comment } from "./Comment";
 import Entity from "./Entity";
 import { Sub } from "./Sub";
 import User from "./User";
+import Vote from "./Votes";
 
 
 @TOEntity('posts')
@@ -44,6 +45,9 @@ export class Post extends Entity {
 
     @OneToMany(() => Comment, comment => comment.post)
     comments: Comment[]
+
+    @OneToMany(() => Vote, vote => vote.comment)
+    vates: Vote[]
 
     protected url: string
     @AfterLoad()
