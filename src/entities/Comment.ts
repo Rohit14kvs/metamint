@@ -32,7 +32,13 @@ export class Comment extends Entity {
     post: Post
 
     @OneToMany(() => Vote, vote => vote.comment)
-    vates: Vote[]
+    votes: Vote[]
+
+    protected userVote: number
+    setUserVote(user: User) {
+        const index = this.votes?.findIndex(v => v.username === user.username)
+        this.userVote = index > -1 ? this.votes[index].value : 0
+    }
 
     @BeforeInsert()
     makeIdAndSlug() {
