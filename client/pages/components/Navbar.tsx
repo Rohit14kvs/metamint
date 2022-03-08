@@ -9,7 +9,7 @@ const Navbar: React.FC = () => {
             <Link href="/">
                 <a className="btn normal-case text-lg">Metamint</a>
             </Link>
-            <div className="pl-2 bg-gray-700 rounded-lg">
+            <div className="pl-2 bg-gray-700 rounded-lg w-2/5">
                 <div className="flex items-center">
                     <i className="fa-solid fa-magnifying-glass pr-2 text-slate-300"></i>
                     <input type="text" placeholder="Search" className="input px-2 h-8 focus:outline-none rounded-l-none pl-1 w-96" />
